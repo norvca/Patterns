@@ -8,15 +8,17 @@ we should avoid to use them, because:
 2. If a magic string is being written in multiple places you have to change all of them without any safety (such as compile-time error). This can be countered by only declaring it in one place and reusing the variable, though.
 
 3. Typos can become serious bugs. If you have a function:
-
+    ```js
     func(string foo) {
         if (foo == "bar") {
             // do something
         }
     }
+    ```
     and someone accidentally types:
-
+    ```js
     func("barr");
+    ```
     This is worse the rarer or more complex the string is, especially if you have programmers that are unfamiliar with the project's native language.
 
 4. Magic strings are rarely self-documenting. If you see one string, that tells you nothing of what else the string could / should be. You will probably have to look into the implementation to be sure you've picked the right string.
